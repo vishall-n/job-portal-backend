@@ -12,10 +12,10 @@ jwt = JWTManager(app)
 
 # Database connection
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="1234",
-    database="job_portal"
+    host="sql12.freesqldatabase.com",
+    user="sql12819216",
+    password="43XhGZS8wA",
+    database="sql12819216"
 )
 
 cursor = db.cursor()
