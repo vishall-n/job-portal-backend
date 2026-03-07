@@ -11,18 +11,30 @@ app.config["JWT_SECRET_KEY"] = "your_secret_key_here"
 jwt = JWTManager(app)
 
 # Database connection
-db = mysql.connector.connect(
-    host="sql12.freesqldatabase.com",
-    user="sql12819216",
-    password="43XhGZS8wA",
-    database="sql12819216"
-)
 
+import os
+
+def get_db():
+    return mysql.connector.connect(
+        host="sql12.freesqldatabase.com",
+        user="sql12819216",
+        password="43XhGZS8wA",
+        database="sql12819216"
+    )
+
+db = get_db()
 cursor = db.cursor()
 
 # Helper function
+
 def get_user_role(user_id):
-    cursor.execute("SELECT role FROM users WHERE id=%s", (user_id,))
+    global db, cursor
+    try:
+        cursor.execute("SELECT role FROM users WHERE id=%s", (user_id,))
+    except:
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("SELECT role FROM users WHERE id=%s", (user_id,))
     user = cursor.fetchone()
     return user[0] if user else None
 
