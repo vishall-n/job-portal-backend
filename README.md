@@ -2,8 +2,8 @@
 
 A full stack job portal REST API built with **Flask** and **MySQL**, featuring secure authentication, role-based access control, and a modern frontend. Live and deployed on Render + Vercel.
 
-🌐 **Live Demo:** [your-vercel-url.vercel.app](https://job-portal-frontend-puce-five.vercel.app/)  
-⚙️ **API:** [job-portal-backend-a22d.onrender.com](https://job-portal-backend-a22d.onrender.com/jobs)
+🌐 **Live Demo:** [https://job-portal-frontend-puce-five.vercel.app/](https://job-portal-frontend-puce-five.vercel.app/)  
+⚙️ **API:** [https://job-portal-backend-a22d.onrender.com/jobs](https://job-portal-backend-a22d.onrender.com/jobs)
 
 ---
 
