@@ -1,13 +1,18 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 import mysql.connector
 import bcrypt
+import os
+from dotenv import load_dotenv
+from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+
+#loading env file
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-app.config["JWT_SECRET_KEY"] = "your_secret_key_here"
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 jwt = JWTManager(app)
 
 # Database connection
@@ -16,10 +21,10 @@ import os
 
 def get_db():
     return mysql.connector.connect(
-        host="sql12.freesqldatabase.com",
-        user="sql12819216",
-        password="43XhGZS8wA",
-        database="sql12819216"
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
     )
 
 db = get_db()
